@@ -32,13 +32,13 @@ const stringToDigits = Object.assign(Object.create(null), {
 
 const getFirstDigit = (line) => {
   const re = /one|two|three|four|five|six|seven|eight|nine|[1-9]/g;
-  const numbersAsString = line.match(re);
+  const numbersAsString = re.exec(line);
   return stringToDigits[numbersAsString[0]];
 };
 
 const getLastDigit = (line) => {
   const re = /eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|[1-9]/g;
-  const numbersAsString = line.split("").reverse().join("").match(re);
+  const numbersAsString = re.exec(line.split("").reverse().join(""));
   return stringToDigits[numbersAsString[0]];
 };
 
